@@ -1,0 +1,53 @@
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Enhancing standard bootstrap styles */
+.bg-primary {
+    background-color: #4f46e5 !important;
+}
+
+.text-primary {
+    color: #4f46e5 !important;
+}
+
+.btn-primary {
+    background-color: #4f46e5;
+    border-color: #4f46e5;
+}
+
+.btn-primary:hover {
+    background-color: #4338ca;
+    border-color: #4338ca;
+}
+
+.btn-outline-primary {
+    color: #4f46e5;
+    border-color: #4f46e5;
+}
+
+.btn-outline-primary:hover {
+    background-color: #4f46e5;
+    border-color: #4f46e5;
+}
+
+.border-start-primary {
+    border-left-color: #4f46e5 !important;
+}
+
+/* Custom interactions */
+.question-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.question-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1) !important;
+}
+
+/* Badges */
+.badge {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}

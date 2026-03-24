@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Question Generator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">🤖 Interview Prep AI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/history">History</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-7">
+                <!-- Main Form Card -->
+                <div class="card shadow border-0 rounded-4">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="text-center mb-4">
+                            <h2 class="card-title text-primary fw-bold">Generate Questions</h2>
+                            <p class="text-muted">Select your criteria to get specialized technical interview questions.</p>
+                        </div>
+                        
+                        <!-- Form Validation Alert Container -->
+                        <div id="errorMsg" class="alert alert-danger d-none border-0 rounded-3 shadow-sm" role="alert">
+                            <strong>Hold on!</strong> Please make sure all fields are correctly filled (1-10 questions).
+                        </div>
+
+                        <!-- Form -->
+                        <form id="generatorForm" action="/generate" method="POST">
+                            <div class="mb-4">
+                                <label for="topic" class="form-label fw-bold">Select Topic</label>
+                                <select class="form-select form-select-lg" id="topic" name="topic" required>
+                                    <option value="" disabled selected>Choose a topic...</option>
+                                    <option value="Data Structures">Data Structures & Agorithms</option>
+                                    <option value="Python">Python</option>
+                                    <option value="DBMS">Database Management System (DBMS)</option>
+                                    <option value="OS">Operating Systems</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="difficulty" class="form-label fw-bold">Difficulty Level</label>
+                                <select class="form-select form-select-lg" id="difficulty" name="difficulty" required>
+                                    <option value="" disabled selected>Choose difficulty...</option>
+                                    <option value="Easy">Easy (For beginners)</option>
+                                    <option value="Medium">Medium (Standard)</option>
+                                    <option value="Hard">Hard (Expert)</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-5">
+                                <label for="num_questions" class="form-label fw-bold">Number of Questions</label>
+                                <input type="number" class="form-control form-control-lg" id="num_questions" name="num_questions" min="1" max="10" placeholder="e.g., 5" required>
+                                <div class="form-text">Choose a number between 1 and 10 to limit output footprint.</div>
+                            </div>
+
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg rounded-pill" id="generateBtn">
+                                    <span class="btn-text">Generate Questions 🚀</span>
+                                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                    <span class="loading-text d-none ms-2">Synthesizing...</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center mt-5 mb-4 text-muted">
+        <small>&copy; 2024 AI Interview Question Generator. Powered by Flask & jQuery.</small>
+    </footer>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
